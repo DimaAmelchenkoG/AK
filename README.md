@@ -31,7 +31,7 @@
 <var_value> - [0-9]+  | "[a-zA-Z]+"
 <label> - [a-zA-Z]+
 
-<arg>  -  <var_name>       |  &<var_name>         |  [0-9]+
+<arg>  -  <var_name>       |  &<var_name>         |  [0-9]+  |  "in" | "out" |
           прямая адресация | косвенная адресация
 ```
 
@@ -41,17 +41,20 @@
 | st  | ST  | 2  | MEM(ADR) = AC  |
 | add  | ADD  |  6 | AC = AC + ARG  |
 | sub  | SUB  | 6  | AC = AC - ARG  |
+| sub  | MUL  | 6  | AC = AC * ARG  |
+| sub  | DIB  | 6  | AC = AC / ARG  |
 | mod  | MOD  | 6  | AC = AC % ARG  |
 | inc  | INC  | 7  | MEM(ADR) = MEM(ADR) + 1 |
-| jmp  | JMP  | 1  | JMP ARG  |
-| jz  | JZ  | 1  | IF AC == 0: JMP ARG |
-| jnz  | JNZ  | 1  | IF AC != 0: JMP ARG   |
-| print  | PRINT  | -  | OUTPUT =  MEM(ADR)|
-| read  | READ  | -  | MEM(ADR) = INPUT  |
+| jmp  | JMP  | 1  | JMP LABEL  |
+| jz  | JZ  | 1  | IF AC == 0: JMP LABEL |
+| jnz  | JNZ  | 1  | IF AC != 0: JMP LABEL   |
 | halt  | HALT  | 1  | STOP  |
 
 ## Организация памяти
-
+- архитектура фон неймана
+- в 0-евой ячейке лежит адрес первой инструкции
+- при обращение к 1-ой и 2-ой ячейке мы работает с внешними устройствами (in и out)
+- после всех интрукций, у нас идут ячейки для работы с вводом данных
 |  адрес      | содержимое        | 
 | ------------- | ------------- | 
 | 0  | номер первой инструкции (k)  |
@@ -78,11 +81,27 @@
 2. Транслятор находит все метки
 3. Транслятор считывает инструкции, заменяя имена меток, на их номер по счету
 
-## Процессор
-### DataPath
+# Процессор
+- Интерфейс командной строки: machine.py <machine_code_file> <input_file>
+## DataPath
+- Реализован в классе DataPath в файле machine.py
+## Сигналы:
+- latch_acc       
+- latch_address_register
+- latch_data_register
+- latch_memory
+- latch_alu_right
+- latch_alu_left
+- getMUX       -     говорит, какие данные выводить MUX
+
+### Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
+
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/6ec4bc51-15ce-4485-aa49-d37f97eed2cd)
 
-### ControlUnit
+## ControlUnit
+- Реализован в классе ControlUnit в файле machine.py
+- Цикл симуляции осуществляется в метод execute.
+  
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/5eafdecd-7d8d-4074-b5ed-10f297606b85)
 
 
