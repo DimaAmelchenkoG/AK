@@ -1,0 +1,224 @@
+in_source: |
+  .data
+      x: 0
+      question: "Whats your name? "
+      test: "Hello "
+      yourname: ""
+  .code
+      loop:
+          ld &question
+          jz readloop
+          st out
+          inc question
+          jmp loop
+      readloop:
+          ld yourname
+          st x
+      readloop_1:
+          ld in
+          st &yourname
+          jz answer
+          inc yourname
+          jmp readloop_1
+      answer:
+          ld &test
+          jz answer_name
+          st out
+          inc test
+          jmp answer
+      answer_name:
+          ld x
+          st yourname
+      answer_name_1:
+          st yourname
+          ld &yourname
+          jz break
+          st out
+          inc yourname
+          jmp answer_name_1
+      break:
+          halt
+in_stdin: |-
+  Dima
+out_code: |-
+  [{"index": 0, "opcode": "var", "arg": 0, "name": "x"}, {"index": 1, "opcode": "var", "arg": "\"Whats your name? \"", "name": "question"}, {"index": 2, "opcode": "var", "arg": "\"Hello \"", "name": "test"}, {"index": 3, "opcode": "var", "arg": "\"\"", "name": "yourname"}, {"index": 4, "opcode": "ld", "arg": 1, "kosven": 1}, {"index": 5, "opcode": "jz", "arg": 9}, {"index": 6, "opcode": "st", "arg": "out"}, {"index": 7, "opcode": "inc", "arg": 1}, {"index": 8, "opcode": "jmp", "arg": 4}, {"index": 9, "opcode": "ld", "arg": 3}, {"index": 10, "opcode": "st", "arg": 0}, {"index": 11, "opcode": "ld", "arg": "in"}, {"index": 12, "opcode": "st", "arg": 3, "kosven": 1}, {"index": 13, "opcode": "jz", "arg": 16}, {"index": 14, "opcode": "inc", "arg": 3}, {"index": 15, "opcode": "jmp", "arg": 11}, {"index": 16, "opcode": "ld", "arg": 2, "kosven": 1}, {"index": 17, "opcode": "jz", "arg": 21}, {"index": 18, "opcode": "st", "arg": "out"}, {"index": 19, "opcode": "inc", "arg": 2}, {"index": 20, "opcode": "jmp", "arg": 16}, {"index": 21, "opcode": "ld", "arg": 0}, {"index": 22, "opcode": "st", "arg": 3}, {"index": 23, "opcode": "st", "arg": 3}, {"index": 24, "opcode": "ld", "arg": 3, "kosven": 1}, {"index": 25, "opcode": "jz", "arg": 29}, {"index": 26, "opcode": "st", "arg": "out"}, {"index": 27, "opcode": "inc", "arg": 3}, {"index": 28, "opcode": "jmp", "arg": 23}, {"index": 29, "opcode": "halt"}]
+out_stdout: |
+  source LoC: 39 code instr: 30
+  ============================================================
+  Whats your name? Hello Dima
+  instr_counter:  174 ticks: 468
+out_log: |
+  DEBUG   machine:simulation    TICK: 4   PC: 1   ACC: W  DR: W  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 5   PC: 2   ACC: W  DR: W  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 6   PC: 3   ACC: W  DR: W  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 13   PC: 4   ACC: 7  DR: 7  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 14   PC: 5   ACC: 7  DR: 7  ZERO: False
+  DEBUG   machine:simulation    TICK: 18   PC: 6   ACC: h  DR: h  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 19   PC: 7   ACC: h  DR: h  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 20   PC: 8   ACC: h  DR: h  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 27   PC: 9   ACC: 8  DR: 8  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 28   PC: 10   ACC: 8  DR: 8  ZERO: False
+  DEBUG   machine:simulation    TICK: 32   PC: 11   ACC: a  DR: a  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 33   PC: 12   ACC: a  DR: a  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 34   PC: 13   ACC: a  DR: a  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 41   PC: 14   ACC: 9  DR: 9  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 42   PC: 15   ACC: 9  DR: 9  ZERO: False
+  DEBUG   machine:simulation    TICK: 46   PC: 16   ACC: t  DR: t  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 47   PC: 17   ACC: t  DR: t  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 48   PC: 18   ACC: t  DR: t  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 55   PC: 19   ACC: 10  DR: 10  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 56   PC: 20   ACC: 10  DR: 10  ZERO: False
+  DEBUG   machine:simulation    TICK: 60   PC: 21   ACC: s  DR: s  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 61   PC: 22   ACC: s  DR: s  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 62   PC: 23   ACC: s  DR: s  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 69   PC: 24   ACC: 11  DR: 11  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 70   PC: 25   ACC: 11  DR: 11  ZERO: False
+  DEBUG   machine:simulation    TICK: 74   PC: 26   ACC:    DR:    ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 75   PC: 27   ACC:    DR:    ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 76   PC: 28   ACC:    DR:    ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 83   PC: 29   ACC: 12  DR: 12  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 84   PC: 30   ACC: 12  DR: 12  ZERO: False
+  DEBUG   machine:simulation    TICK: 88   PC: 31   ACC: y  DR: y  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 89   PC: 32   ACC: y  DR: y  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 90   PC: 33   ACC: y  DR: y  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 97   PC: 34   ACC: 13  DR: 13  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 98   PC: 35   ACC: 13  DR: 13  ZERO: False
+  DEBUG   machine:simulation    TICK: 102   PC: 36   ACC: o  DR: o  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 103   PC: 37   ACC: o  DR: o  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 104   PC: 38   ACC: o  DR: o  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 111   PC: 39   ACC: 14  DR: 14  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 112   PC: 40   ACC: 14  DR: 14  ZERO: False
+  DEBUG   machine:simulation    TICK: 116   PC: 41   ACC: u  DR: u  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 117   PC: 42   ACC: u  DR: u  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 118   PC: 43   ACC: u  DR: u  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 125   PC: 44   ACC: 15  DR: 15  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 126   PC: 45   ACC: 15  DR: 15  ZERO: False
+  DEBUG   machine:simulation    TICK: 130   PC: 46   ACC: r  DR: r  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 131   PC: 47   ACC: r  DR: r  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 132   PC: 48   ACC: r  DR: r  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 139   PC: 49   ACC: 16  DR: 16  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 140   PC: 50   ACC: 16  DR: 16  ZERO: False
+  DEBUG   machine:simulation    TICK: 144   PC: 51   ACC:    DR:    ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 145   PC: 52   ACC:    DR:    ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 146   PC: 53   ACC:    DR:    ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 153   PC: 54   ACC: 17  DR: 17  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 154   PC: 55   ACC: 17  DR: 17  ZERO: False
+  DEBUG   machine:simulation    TICK: 158   PC: 56   ACC: n  DR: n  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 159   PC: 57   ACC: n  DR: n  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 160   PC: 58   ACC: n  DR: n  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 167   PC: 59   ACC: 18  DR: 18  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 168   PC: 60   ACC: 18  DR: 18  ZERO: False
+  DEBUG   machine:simulation    TICK: 172   PC: 61   ACC: a  DR: a  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 173   PC: 62   ACC: a  DR: a  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 174   PC: 63   ACC: a  DR: a  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 181   PC: 64   ACC: 19  DR: 19  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 182   PC: 65   ACC: 19  DR: 19  ZERO: False
+  DEBUG   machine:simulation    TICK: 186   PC: 66   ACC: m  DR: m  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 187   PC: 67   ACC: m  DR: m  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 188   PC: 68   ACC: m  DR: m  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 195   PC: 69   ACC: 20  DR: 20  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 196   PC: 70   ACC: 20  DR: 20  ZERO: False
+  DEBUG   machine:simulation    TICK: 200   PC: 71   ACC: e  DR: e  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 201   PC: 72   ACC: e  DR: e  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 202   PC: 73   ACC: e  DR: e  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 209   PC: 74   ACC: 21  DR: 21  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 210   PC: 75   ACC: 21  DR: 21  ZERO: False
+  DEBUG   machine:simulation    TICK: 214   PC: 76   ACC: ?  DR: ?  ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 215   PC: 77   ACC: ?  DR: ?  ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 216   PC: 78   ACC: ?  DR: ?  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 223   PC: 79   ACC: 22  DR: 22  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 224   PC: 80   ACC: 22  DR: 22  ZERO: False
+  DEBUG   machine:simulation    TICK: 228   PC: 81   ACC:    DR:    ZERO: False 	ld&5
+  DEBUG   machine:simulation    TICK: 229   PC: 82   ACC:    DR:    ZERO: False 	jz37
+  DEBUG   machine:simulation    TICK: 230   PC: 83   ACC:    DR:    ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 237   PC: 84   ACC: 23  DR: 23  ZERO: False 	inc5
+  DEBUG   machine:simulation    TICK: 238   PC: 85   ACC: 23  DR: 23  ZERO: False
+  DEBUG   machine:simulation    TICK: 242   PC: 86   ACC: 0  DR: 0  ZERO: True 	ld&5
+  DEBUG   machine:simulation    TICK: 243   PC: 87   ACC: 0  DR: 0  ZERO: True 	jmp32
+  DEBUG   machine:simulation    TICK: 247   PC: 88   ACC: 60  DR: 60  ZERO: False 	ld59
+  DEBUG   machine:simulation    TICK: 249   PC: 89   ACC: 60  DR: 60  ZERO: False 	st4
+  DEBUG   machine:simulation    TICK: 250   PC: 90   ACC: D  DR: 60  ZERO: False 	ldin
+  DEBUG   machine:simulation    TICK: 252   PC: 91   ACC: D  DR: D  ZERO: False 	st&59
+  DEBUG   machine:simulation    TICK: 253   PC: 92   ACC: D  DR: D  ZERO: False 	jz44
+  DEBUG   machine:simulation    TICK: 260   PC: 93   ACC: 61  DR: 61  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 261   PC: 94   ACC: 61  DR: 61  ZERO: False 	st4
+  DEBUG   machine:simulation    TICK: 262   PC: 95   ACC: i  DR: 61  ZERO: False 	ldin
+  DEBUG   machine:simulation    TICK: 264   PC: 96   ACC: i  DR: i  ZERO: False 	st&59
+  DEBUG   machine:simulation    TICK: 265   PC: 97   ACC: i  DR: i  ZERO: False 	jz44
+  DEBUG   machine:simulation    TICK: 272   PC: 98   ACC: 62  DR: 62  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 273   PC: 99   ACC: 62  DR: 62  ZERO: False 	st4
+  DEBUG   machine:simulation    TICK: 274   PC: 100   ACC: m  DR: 62  ZERO: False 	ldin
+  DEBUG   machine:simulation    TICK: 276   PC: 101   ACC: m  DR: m  ZERO: False 	st&59
+  DEBUG   machine:simulation    TICK: 277   PC: 102   ACC: m  DR: m  ZERO: False 	jz44
+  DEBUG   machine:simulation    TICK: 284   PC: 103   ACC: 63  DR: 63  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 285   PC: 104   ACC: 63  DR: 63  ZERO: False 	st4
+  DEBUG   machine:simulation    TICK: 286   PC: 105   ACC: a  DR: 63  ZERO: False 	ldin
+  DEBUG   machine:simulation    TICK: 288   PC: 106   ACC: a  DR: a  ZERO: False 	st&59
+  DEBUG   machine:simulation    TICK: 289   PC: 107   ACC: a  DR: a  ZERO: False 	jz44
+  DEBUG   machine:simulation    TICK: 296   PC: 108   ACC: 64  DR: 64  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 297   PC: 109   ACC: 64  DR: 64  ZERO: False 	st4
+  DEBUG   machine:simulation    TICK: 298   PC: 110   ACC: 0  DR: 64  ZERO: True 	ldin
+  DEBUG   machine:simulation    TICK: 300   PC: 111   ACC: 0  DR: 0  ZERO: True 	st&59
+  DEBUG   machine:simulation    TICK: 301   PC: 112   ACC: 0  DR: 0  ZERO: True 	jmp39
+  DEBUG   machine:simulation    TICK: 305   PC: 113   ACC: H  DR: H  ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 306   PC: 114   ACC: H  DR: H  ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 307   PC: 115   ACC: H  DR: H  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 314   PC: 116   ACC: 26  DR: 26  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 315   PC: 117   ACC: 26  DR: 26  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 319   PC: 118   ACC: e  DR: e  ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 320   PC: 119   ACC: e  DR: e  ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 321   PC: 120   ACC: e  DR: e  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 328   PC: 121   ACC: 27  DR: 27  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 329   PC: 122   ACC: 27  DR: 27  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 333   PC: 123   ACC: l  DR: l  ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 334   PC: 124   ACC: l  DR: l  ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 335   PC: 125   ACC: l  DR: l  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 342   PC: 126   ACC: 28  DR: 28  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 343   PC: 127   ACC: 28  DR: 28  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 347   PC: 128   ACC: l  DR: l  ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 348   PC: 129   ACC: l  DR: l  ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 349   PC: 130   ACC: l  DR: l  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 356   PC: 131   ACC: 29  DR: 29  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 357   PC: 132   ACC: 29  DR: 29  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 361   PC: 133   ACC: o  DR: o  ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 362   PC: 134   ACC: o  DR: o  ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 363   PC: 135   ACC: o  DR: o  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 370   PC: 136   ACC: 30  DR: 30  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 371   PC: 137   ACC: 30  DR: 30  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 375   PC: 138   ACC:    DR:    ZERO: False 	ld&24
+  DEBUG   machine:simulation    TICK: 376   PC: 139   ACC:    DR:    ZERO: False 	jz49
+  DEBUG   machine:simulation    TICK: 377   PC: 140   ACC:    DR:    ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 384   PC: 141   ACC: 31  DR: 31  ZERO: False 	inc24
+  DEBUG   machine:simulation    TICK: 385   PC: 142   ACC: 31  DR: 31  ZERO: False 	jmp39
+  DEBUG   machine:simulation    TICK: 389   PC: 143   ACC: 0  DR: 0  ZERO: True 	ld&24
+  DEBUG   machine:simulation    TICK: 390   PC: 144   ACC: 0  DR: 0  ZERO: True 	jmp44
+  DEBUG   machine:simulation    TICK: 394   PC: 145   ACC: 60  DR: 60  ZERO: False 	ld4
+  DEBUG   machine:simulation    TICK: 396   PC: 146   ACC: 60  DR: 60  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 398   PC: 147   ACC: 60  DR: 60  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 402   PC: 148   ACC: D  DR: D  ZERO: False 	ld&59
+  DEBUG   machine:simulation    TICK: 403   PC: 149   ACC: D  DR: D  ZERO: False 	jz57
+  DEBUG   machine:simulation    TICK: 404   PC: 150   ACC: D  DR: D  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 411   PC: 151   ACC: 61  DR: 61  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 412   PC: 152   ACC: 61  DR: 61  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 414   PC: 153   ACC: 61  DR: 61  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 418   PC: 154   ACC: i  DR: i  ZERO: False 	ld&59
+  DEBUG   machine:simulation    TICK: 419   PC: 155   ACC: i  DR: i  ZERO: False 	jz57
+  DEBUG   machine:simulation    TICK: 420   PC: 156   ACC: i  DR: i  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 427   PC: 157   ACC: 62  DR: 62  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 428   PC: 158   ACC: 62  DR: 62  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 430   PC: 159   ACC: 62  DR: 62  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 434   PC: 160   ACC: m  DR: m  ZERO: False 	ld&59
+  DEBUG   machine:simulation    TICK: 435   PC: 161   ACC: m  DR: m  ZERO: False 	jz57
+  DEBUG   machine:simulation    TICK: 436   PC: 162   ACC: m  DR: m  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 443   PC: 163   ACC: 63  DR: 63  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 444   PC: 164   ACC: 63  DR: 63  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 446   PC: 165   ACC: 63  DR: 63  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 450   PC: 166   ACC: a  DR: a  ZERO: False 	ld&59
+  DEBUG   machine:simulation    TICK: 451   PC: 167   ACC: a  DR: a  ZERO: False 	jz57
+  DEBUG   machine:simulation    TICK: 452   PC: 168   ACC: a  DR: a  ZERO: False 	stout
+  DEBUG   machine:simulation    TICK: 459   PC: 169   ACC: 64  DR: 64  ZERO: False 	inc59
+  DEBUG   machine:simulation    TICK: 460   PC: 170   ACC: 64  DR: 64  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 462   PC: 171   ACC: 64  DR: 64  ZERO: False 	st59
+  DEBUG   machine:simulation    TICK: 466   PC: 172   ACC: 0  DR: 0  ZERO: True 	ld&59
+  DEBUG   machine:simulation    TICK: 467   PC: 173   ACC: 0  DR: 0  ZERO: True 	jmp51
+  DEBUG   machine:simulation    TICK: 468   PC: 174   ACC: 0  DR: 0  ZERO: True 	halt-
