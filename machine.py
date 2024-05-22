@@ -593,7 +593,7 @@ def main(code_file, input_file):
     output, instr_counter, ticks = simulation(
         code,
         data_memory_size=1000,
-        limit=10000,
+        limit=100000,
         input_buffer=input_buffer
     )
 
