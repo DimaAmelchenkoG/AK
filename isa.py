@@ -1,5 +1,7 @@
-from enum import Enum
 from collections import namedtuple
+from enum import Enum
+
+
 class Opcode(str, Enum):
     VAR = "var"
     LOAD = "ld"
@@ -22,6 +24,7 @@ class Opcode(str, Enum):
         `Opcode.INC` вернуть `increment`.
         """
         return str(self.value)
+
 
 class Term(namedtuple("Term", "line pos symbol")):
     ""
