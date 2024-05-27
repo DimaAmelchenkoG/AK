@@ -50,7 +50,6 @@ class DataPath:
         default_text = []
         input_text = []
 
-
         for line in code:
             opcode = line["opcode"]
             if opcode == Opcode.VAR:
@@ -73,8 +72,9 @@ class DataPath:
         count_of_texts = 0
         for texts in default_text:
             text = texts["value"][1:-1]
-            self.data_memory[
-                address_after_vars + count_of_symbols + count_of_texts] = address_after_vars + count_of_texts + count_of_symbols + 1
+            self.data_memory[address_after_vars + count_of_symbols + count_of_texts] = (
+                address_after_vars + count_of_texts + count_of_symbols + 1
+            )
             for dt in default_text:
                 if dt["value"][1:-1] == text:
                     dt["new_address"] = address_after_vars + count_of_symbols + count_of_texts
@@ -99,13 +99,10 @@ class DataPath:
             input_text[0]["new_address"] = reserved
             self.data_memory[reserved] = reserved + 1
 
-
-
         count_of_inputs = 0
         for line in code:
             if "arg" in line and line["arg"] == '""':
                 count_of_inputs += 1
-
 
         count_of_instr = 0
         for line in code:
@@ -146,7 +143,6 @@ class DataPath:
                 instr = {"opcode": Opcode(opcode), "arg": arg}
                 self.data_memory[address] = instr
                 count_of_instr += 1
-
 
         self.data_memory[0] = start_of_instr
         self.instruction_pointer = self.data_memory[0]
@@ -199,9 +195,6 @@ class DataPath:
     def latch_alu_left(self):
         self.alu_left = self.mux_ab_value
 
-
-
-
     def latch_address_register(self, address):
         if str(address).isdigit():
             self.address_register = address
@@ -220,7 +213,6 @@ class DataPath:
         if read_write == "w":
             self.data_register = self.acc
 
-
     def latch_memory(self, address):
         self.data_memory[self.address_register] = self.data_register
 
@@ -231,17 +223,16 @@ class DataPath:
     def signal_write(self, arg):
         symbol = self.input_buffer.pop(0)
         self.acc = symbol
-        #if arg.startswith('&'):
-            #symbol = self.input_buffer.pop(0)
-            #self.data_memory[self.data_memory[int(arg[1:])]] = symbol
-            #self.acc = symbol
+        # if arg.startswith('&'):
+        # symbol = self.input_buffer.pop(0)
+        # self.data_memory[self.data_memory[int(arg[1:])]] = symbol
+        # self.acc = symbol
 
     def set_zero(self):
         if self.acc == 0:
             self.zero = True
         else:
             self.zero = False
-
 
 
 class ControlUnit:
@@ -259,11 +250,18 @@ class ControlUnit:
         self.count_of_instr = 0
 
     def print_state(self):
-        print("Tick:", self.data_path.tick_counter,
-              "ACC:", self.data_path.acc,
-              "ALU:", self.data_path.alu,
-              "DR:", self.data_path.data_register,
-              "ZERO:", self.data_path.zero)
+        print(
+            "Tick:",
+            self.data_path.tick_counter,
+            "ACC:",
+            self.data_path.acc,
+            "ALU:",
+            self.data_path.alu,
+            "DR:",
+            self.data_path.data_register,
+            "ZERO:",
+            self.data_path.zero,
+        )
 
     def address_decoder(self, arg):
         if arg == "in":
@@ -289,7 +287,7 @@ class ControlUnit:
             self.count_of_instr,
             self.data_path.acc,
             self.data_path.data_register,
-            self.data_path.zero
+            self.data_path.zero,
         )
 
         if self.data_path.instruction_pointer != self.data_path.data_memory[0]:
@@ -305,7 +303,6 @@ class ControlUnit:
         else:
             ret = state_repr
 
-
         return ret
 
     def decode_and_execute_instruction(self):
@@ -313,11 +310,10 @@ class ControlUnit:
         instr = self.data_path.data_memory[self.data_path.instruction_pointer]
         arg = instr["arg"]
         opcode = instr["opcode"]
-        #print(opcode, arg)
-
+        # print(opcode, arg)
 
         if opcode == Opcode.LOAD:
-            if not(self.address_decoder(arg)):
+            if not (self.address_decoder(arg)):
                 self.data_path.latch_address_register(arg)
                 self.data_path.tick()
 
@@ -333,7 +329,7 @@ class ControlUnit:
                 self.data_path.tick()
 
         if opcode == Opcode.ST:
-            if not(self.address_decoder(arg)):
+            if not (self.address_decoder(arg)):
                 self.data_path.latch_data_register("w")
                 self.data_path.tick()
 
@@ -342,7 +338,7 @@ class ControlUnit:
                 self.data_path.tick()
 
         if opcode == Opcode.JNZ:
-            if not(self.data_path.zero):
+            if not (self.data_path.zero):
                 self.data_path.instruction_pointer = arg - 1
             self.data_path.tick()
 
@@ -377,11 +373,10 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.MOD:
-
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register( "r")
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
             self.data_path.get_mux_dcp("DR", arg)
@@ -399,15 +394,12 @@ class ControlUnit:
             self.data_path.set_zero()
             self.data_path.tick()
 
-
         if opcode == Opcode.SUB:
-
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
             self.data_path.latch_data_register("r")
             self.data_path.tick()
-
 
             self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
@@ -425,13 +417,11 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.MUL:
-
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
             self.data_path.latch_data_register("r")
             self.data_path.tick()
-
 
             self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
@@ -449,13 +439,11 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.DIV:
-
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
             self.data_path.latch_data_register("r")
             self.data_path.tick()
-
 
             self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
@@ -473,7 +461,6 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.INC:
-
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
@@ -497,8 +484,6 @@ class ControlUnit:
             self.data_path.set_zero()
             self.data_path.tick()
 
-
-
         if opcode == Opcode.PRINT:
             # print("PRINT", arg, self.data_path.acc)
             self.data_path.signal_read()
@@ -516,9 +501,9 @@ class ControlUnit:
 
         self.data_path.instruction_pointer += 1
 
-        #self.printState()
-        #for i in range(70):
-            #print(i, self.data_path.data_memory[i])
+        # self.printState()
+        # for i in range(70):
+        # print(i, self.data_path.data_memory[i])
 
         # instr = self.program[self.program_counter]
         # opcode = instr["opcode"]
@@ -531,16 +516,16 @@ def simulation(code, data_memory_size, limit, input_buffer):
     instr_counter = 0
 
     data_path.init_memory(code)
-    #for i in range(25):
-        #print(i, data_path.data_memory[i])
-    #print("----------")
+    # for i in range(25):
+    # print(i, data_path.data_memory[i])
+    # print("----------")
     i = 0
 
-    #logging.debug(control_unit)
+    # logging.debug(control_unit)
     try:
         while True:
             control_unit.decode_and_execute_instruction()
-            #logging.debug(control_unit)
+            # logging.debug(control_unit)
             instr_counter += 1
             if i == 100000:
                 break
@@ -550,16 +535,14 @@ def simulation(code, data_memory_size, limit, input_buffer):
         instr_counter += 1
         logging.debug(control_unit)
 
-
     if instr_counter > limit:
         logging.warning("Exceed limit!")
 
-        #logging.debug(control_unit)
-        #print("STOP")
-    #for i in range(25):
-        #print(i, data_path.data_memory[i])
+        # logging.debug(control_unit)
+        # print("STOP")
+    # for i in range(25):
+    # print(i, data_path.data_memory[i])
     return data_path.output_buffer, instr_counter, data_path.tick_counter
-
 
 
 def main(code_file, input_file):
@@ -576,25 +559,16 @@ def main(code_file, input_file):
         for sym in f.read():
             input_buffer.append(sym)
 
-    #input_buffer = []
+    # input_buffer = []
 
     if len(input_buffer) > 0:
         input_buffer.append(0)
 
+    # for a in code:
+    # print(a)
+    # print("---------")
 
-
-
-
-    #for a in code:
-        #print(a)
-    #print("---------")
-
-    output, instr_counter, ticks = simulation(
-        code,
-        data_memory_size=1000,
-        limit=100000,
-        input_buffer=input_buffer
-    )
+    output, instr_counter, ticks = simulation(code, data_memory_size=1000, limit=100000, input_buffer=input_buffer)
 
     if len(output) > 0:
         print("".join(output))
@@ -602,13 +576,11 @@ def main(code_file, input_file):
     print("instr_counter: ", instr_counter, "ticks:", ticks)
 
 
-
-
 if __name__ == "__main__":
-    #logging.getLogger().setLevel(logging.DEBUG)
-    #code_file = 'target_file.json'
-    #input_file = 'input_machine.txt'
-    #main(code_file, input_file)
+    # logging.getLogger().setLevel(logging.DEBUG)
+    # code_file = 'target_file.json'
+    # input_file = 'input_machine.txt'
+    # main(code_file, input_file)
 
     _, code_file, input_file = sys.argv
     main(code_file, input_file)
