@@ -136,7 +136,9 @@ class DataPath:
                                 for dt in input_text:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
+                                """
                                 # arg = line["arg"] + data_start_addres
+                                """
                         else:
                             arg = line["arg"]
 
@@ -166,7 +168,6 @@ class DataPath:
             self.alu = (self.alu_left // self.alu_right) % 4294967296
         if opcode == Opcode.INC:
             self.alu = (self.alu_right + 1) % 4294967296
-
         if opcode == Opcode.MOD:
             self.alu = self.alu_left % self.alu_right
 
@@ -223,6 +224,12 @@ class DataPath:
     def signal_write(self, arg):
         symbol = self.input_buffer.pop(0)
         self.acc = symbol
+        """
+        # if arg.startswith('&'):
+        # symbol = self.input_buffer.pop(0)
+        # self.data_memory[self.data_memory[int(arg[1:])]] = symbol
+        # self.acc = symbol
+        """
 
     def set_zero(self):
         if self.acc == 0:
@@ -269,13 +276,13 @@ class ControlUnit:
             self.data_path.signal_read()
             self.data_path.tick()
             return True
-        elif arg == 1:
+        if arg == 1:
             self.data_path.signal_write(arg)
             self.data_path.set_zero()
             self.data_path.tick()
             return True
-        else:
-            return False
+
+        return False
 
     def __repr__(self):
         state_repr = "TICK: {:1}   PC: {:1}   ACC: {:1}  DR: {}  ZERO: {}".format(
@@ -306,6 +313,9 @@ class ControlUnit:
         instr = self.data_path.data_memory[self.data_path.instruction_pointer]
         arg = instr["arg"]
         opcode = instr["opcode"]
+        """
+        # print(opcode, arg)
+        """
 
         if opcode == Opcode.LOAD:
             if not (self.address_decoder(arg)):
@@ -479,12 +489,16 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.PRINT:
+            """
             # print("PRINT", arg, self.data_path.acc)
+            """
             self.data_path.signal_read()
             self.data_path.tick()
 
         if opcode == Opcode.READ:
+            """
             # print('READ', arg)
+            """
             self.data_path.signal_write(arg)
             self.data_path.set_zero()
             self.data_path.tick()
@@ -495,19 +509,39 @@ class ControlUnit:
 
         self.data_path.instruction_pointer += 1
 
+        """
+        # self.printState()
+        # for i in range(70):
+        # print(i, self.data_path.data_memory[i])
+
+        # instr = self.program[self.program_counter]
+        # opcode = instr["opcode"]
+        # print(opcode)
+        """
+
+
 def simulation(code, data_memory_size, limit, input_buffer):
     data_path = DataPath(data_memory_size, input_buffer)
     control_unit = ControlUnit(code, data_path)
     instr_counter = 0
 
     data_path.init_memory(code)
-
+    """
+    # for i in range(25):
+    # print(i, data_path.data_memory[i])
+    # print("----------")
+    """
     i = 0
 
-
+    """
+    # logging.debug(control_unit)
+    """
     try:
         while True:
             control_unit.decode_and_execute_instruction()
+            """
+            # logging.debug(control_unit)
+            """
             instr_counter += 1
             if i == 100000:
                 break
@@ -520,11 +554,22 @@ def simulation(code, data_memory_size, limit, input_buffer):
     if instr_counter > limit:
         logging.warning("Exceed limit!")
 
+        """
+        # logging.debug(control_unit)
+        # print("STOP")
+    # for i in range(25):
+    # print(i, data_path.data_memory[i])
+    """
     return data_path.output_buffer, instr_counter, data_path.tick_counter
 
 
 def main(code_file, input_file):
     code = []
+
+    """
+    # если адрес > 1000
+    # если адрес равен 3-м, то отправояем в устройство вывода
+    """
 
     with open(code_file) as f:
         code = json.load(f)
@@ -533,11 +578,17 @@ def main(code_file, input_file):
     with open(input_file) as f:
         for sym in f.read():
             input_buffer.append(sym)
-
+    """
+    # input_buffer = []
+    """
 
     if len(input_buffer) > 0:
         input_buffer.append(0)
-
+    """
+    # for a in code:
+    # print(a)
+    # print("---------")
+    """
 
     output, instr_counter, ticks = simulation(code, data_memory_size=1000, limit=100000, input_buffer=input_buffer)
 
@@ -548,6 +599,12 @@ def main(code_file, input_file):
 
 
 if __name__ == "__main__":
+    """
+    # logging.getLogger().setLevel(logging.DEBUG)
+    # code_file = 'target_file.json'
+    # input_file = 'input_machine.txt'
+    # main(code_file, input_file)
+    """
 
     _, code_file, input_file = sys.argv
     main(code_file, input_file)
