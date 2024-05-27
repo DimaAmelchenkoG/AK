@@ -74,7 +74,7 @@ select = [
     # pandas-vet (pandas-related advices)
     "PD",
     # tryceratops (try/except-related advices)
-    ####"TRY",
+    "TRY",
     # ruff-specific advices
     "RUF",
 ]
