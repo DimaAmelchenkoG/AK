@@ -14,6 +14,7 @@ def get_my_vars(source):
     for i in range(index_of_data + 1, index_of_code):
         var = source[i].split(" ", 1)
         var[0] = var[0][:-1]
+        """ print(var[0], var[1])"""
         if var[1].startswith('"'):
             my_vars[var[0]] = {"value": var[1], "number": len(my_vars)}
         elif not (var[1].isdigit()):
@@ -86,7 +87,7 @@ def get_code(source):
                 index_of_command += 1
                 code.append(js)
             else:
-                # print(source[i])
+                """ print(source[i]) """
                 js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value}
                 index_of_command += 1
                 code.append(js)
@@ -98,10 +99,16 @@ def translate(source):
         if source[i].endswith("\n"):
             source[i] = source[i][:-1]
         source[i] = source[i].split(";")[0].strip()
+    """ print(source) """
+    """ print("--------") """
     get_my_vars(source)
     get_labels(source)
+    """print('vars', vars)"""
+    """ print(labels)"""
     get_code(source)
 
+    """ for a in code:"""
+    """ print(a)"""
 
     return code
 
@@ -113,12 +120,15 @@ def main(source, target):
     my_vars.clear()
     code.clear()
 
+    """ source = open(source).readlines()"""
     with open(source, encoding="utf-8") as f:
         source = f.readlines()
 
     source = [x for x in source if x != "\n"]
     code = translate(source)
 
+    """ for a in code:"""
+    """ print(a)"""
 
     with open(target, "w") as f:
         f.write(json.dumps(code))
@@ -127,6 +137,10 @@ def main(source, target):
 
 
 if __name__ == "__main__":
+    """ source = 'cat_1_asm.txt'
+    # target = 'target_file.json'
+    # main(source, target)
+    """
 
     _, source, target = sys.argv
     main(source, target)
