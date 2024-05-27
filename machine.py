@@ -540,7 +540,7 @@ def simulation(code, data_memory_size, limit, input_buffer):
     try:
         while True:
             control_unit.decode_and_execute_instruction()
-            logging.debug(control_unit)
+            #logging.debug(control_unit)
             instr_counter += 1
             if i == 100000:
                 break
