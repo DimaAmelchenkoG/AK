@@ -285,11 +285,11 @@ class ControlUnit:
         return False
 
     def __repr__(self):
-        state_repr = "TICK: {:1}   PC: {:1}   ACC: {:1}  DR: {}  ZERO: {}".format(
-            self.data_path.tick_counter,
+        state_repr = "INSTRUCTION_POINT: {:1} || TICK: {:1} || PC: {:1} || ACC: {:1} || ZERO_FLAG: {} || ".format(
             self.count_of_instr,
+            self.data_path.tick_counter,
+            self.data_path.instruction_pointer,
             self.data_path.acc,
-            self.data_path.data_register,
             self.data_path.zero,
         )
 
@@ -300,9 +300,9 @@ class ControlUnit:
             instr_repr = str(opcode)
 
             if "arg" in instr:
-                instr_repr += "{}".format(instr["arg"])
+                instr_repr += " {}".format(instr["arg"])
 
-            ret = "{} \t{}".format(state_repr, instr_repr)
+            ret = "{} {}".format(state_repr, instr_repr)
         else:
             ret = state_repr
 
@@ -539,9 +539,7 @@ def simulation(code, data_memory_size, limit, input_buffer):
     try:
         while True:
             control_unit.decode_and_execute_instruction()
-            """
-            # logging.debug(control_unit)
-            """
+            logging.debug(control_unit)
             instr_counter += 1
             if i == 100000:
                 break

@@ -130,8 +130,16 @@ def main(source, target):
     """ for a in code:"""
     """ print(a)"""
 
+    with open(target, "w", encoding="utf-8") as file:
+        buf = []
+        for instr in code:
+            buf.append(json.dumps(instr))
+        file.write("[" + ",\n ".join(buf) + "]")
+
+    """
     with open(target, "w") as f:
         f.write(json.dumps(code))
+    """
 
     print("source LoC:", len(source), "code instr:", len(code))
 
