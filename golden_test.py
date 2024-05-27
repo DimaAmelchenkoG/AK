@@ -36,7 +36,6 @@ def test_translator_asm_and_machine(golden, caplog):
             print("============================================================")
             machine.main(target, input_stream)
 
-
         with open(target, encoding="utf-8") as file:
             code = file.read()
 
