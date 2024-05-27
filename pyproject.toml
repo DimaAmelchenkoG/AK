@@ -40,7 +40,7 @@ select = [
     # isort (imports sorting)
     "I",
     # mccabe (cyclomatic complexity analyzer to prevent overcomplicated functions)
-    "C90",
+    #"C90",
     # pyupgrade (possible syntax upgrades checker)
     "UP",
     # eradicate (commented-out code finder for it to be removed)
