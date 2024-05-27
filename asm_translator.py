@@ -1,30 +1,30 @@
+import json
 import sys
 
-from isa import Term, Opcode
-import json
+from isa import Opcode
 
 labels = {}
-vars = {}
+my_vars = {}
 code = []
 
-def getVars(source):
-    index_of_data = source.index('.data')
-    index_of_code = source.index('.code')
+def get_my_vars(source):
+    index_of_data = source.index(".data")
+    index_of_code = source.index(".code")
     for i in range(index_of_data+1, index_of_code):
         var = source[i].split(" ", 1)
         var[0] = var[0][:-1]
         #print(var[0], var[1])
-        if var[1].startswith("\""):
-            vars[var[0]] = {"value": var[1], "number": len(vars)}
+        if var[1].startswith('"'):
+            my_vars[var[0]] = {"value": var[1], "number": len(my_vars)}
         elif not(var[1].isdigit()):
             print("var", var)
-            vars[var[0]] = {"value": var[1], "number": len(vars)}
+            my_vars[var[0]] = {"value": var[1], "number": len(my_vars)}
         else:
             var[1] = int(var[1])
-            vars[var[0]] = {"value": var[1], "number": len(vars)}
+            my_vars[var[0]] = {"value": var[1], "number": len(my_vars)}
 
 
-def getLabels(source):
+def get_labels(source):
     number_of_line = 0
     for i in range(len(source)):
         if source[i].endswith(":"):
@@ -33,23 +33,23 @@ def getLabels(source):
             number_of_line += 1
 
 
-def getCode(source):
+def get_code(source):
     index_of_command = 0
 
-    for var in vars.items():
+    for var in my_vars.items():
         js = {"index": index_of_command, "opcode": Opcode("var").value, "arg": var[1]["value"], "name": var[0]}
         code.append(js)
         index_of_command += 1
 
-    index_of_code = source.index('.code')
+    index_of_code = source.index(".code")
     for i in range(index_of_code+1, len(source)):
         if not(source[i].endswith(":")):
-            if len(source[i].split()) > 1 and source[i].split()[1] in vars:
-                js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value, "arg": vars[source[i].split()[1]]["number"]}
+            if len(source[i].split()) > 1 and source[i].split()[1] in my_vars:
+                js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value, "arg": my_vars[source[i].split()[1]]["number"]}
                 index_of_command += 1
                 code.append(js)
-            elif len(source[i].split()) > 1 and source[i].split()[1][1:] in vars:
-                js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value, "arg": vars[source[i].split()[1][1:]]["number"], "kosven": 1}
+            elif len(source[i].split()) > 1 and source[i].split()[1][1:] in my_vars:
+                js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value, "arg": my_vars[source[i].split()[1][1:]]["number"], "kosven": 1}
                 index_of_command += 1
                 code.append(js)
             elif len(source[i].split()) > 1 and source[i].split()[1] in labels:
@@ -78,11 +78,11 @@ def translate(source):
         source[i] = source[i].split(";")[0].strip()
     #print(source)
     #print("--------")
-    getVars(source)
-    getLabels(source)
+    get_my_vars(source)
+    get_labels(source)
     #print('vars', vars)
     #print(labels)
-    getCode(source)
+    get_code(source)
 
     #for a in code:
         #print(a)
@@ -96,7 +96,7 @@ def main(source, target):
     code = []
 
     labels.clear()
-    vars.clear()
+    my_vars.clear()
     code.clear()
 
     #source = open(source).readlines()
@@ -110,7 +110,7 @@ def main(source, target):
        # print(a)
 
 
-    with open(target, 'w') as f:
+    with open(target, "w") as f:
         f.write(json.dumps(code))
 
     print("source LoC:", len(source), "code instr:", len(code))
