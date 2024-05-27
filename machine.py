@@ -13,8 +13,8 @@ class DataPath:
     instruction_pointer = None
     buffer_register = None
     data_register = None
-    muxDCP_value = None
-    muxAB_value = None
+    mux_dcp_value = None
+    mux_ab_value = None
     alu_right = None
     alu_left = None
     alu = None
@@ -33,8 +33,8 @@ class DataPath:
         self.acc = 0
         self.instruction_pointer = 0
         self.data_register = 0
-        self.muxDCP_value = 0
-        self.muxAB_value = 0
+        self.mux_dcp_value = 0
+        self.mux_ab_value = 0
         self.alu_right = 0
         self.alu_left = 0
         self.alu = 0
@@ -46,7 +46,7 @@ class DataPath:
 
     def init_memory(self, code):
         data_start_addres = 4
-        vars = []
+        my_vars = []
         default_text = []
         input_text = []
 
@@ -56,14 +56,14 @@ class DataPath:
             if opcode == Opcode.VAR:
                 arg = line["arg"]
                 if str(arg).isdigit():
-                    vars.append({"name": line["name"], "value": arg, "old_address": line["index"]})
+                    my_vars.append({"name": line["name"], "value": arg, "old_address": line["index"]})
                 elif len(arg) > 2:
                     default_text.append({"name": line["name"], "value": arg, "old_address": line["index"]})
                 else:
                     input_text.append({"name": line["name"], "old_address": line["index"]})
 
         count_of_vars = 0
-        for var in vars:
+        for var in my_vars:
             self.data_memory[data_start_addres + count_of_vars] = var["value"]
             var["new_address"] = data_start_addres + count_of_vars
             count_of_vars += 1
@@ -103,7 +103,7 @@ class DataPath:
 
         count_of_inputs = 0
         for line in code:
-            if "arg" in line and line["arg"] == "\"\"":
+            if "arg" in line and line["arg"] == '""':
                 count_of_inputs += 1
 
 
@@ -122,18 +122,18 @@ class DataPath:
                                 for dt in default_text:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
-                                for dt in vars:
+                                for dt in my_vars:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
                                 for dt in input_text:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
-                                arg = '&' + str(arg)
+                                arg = "&" + str(arg)
                             else:
                                 for dt in default_text:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
-                                for dt in vars:
+                                for dt in my_vars:
                                     if dt["old_address"] == line["arg"]:
                                         arg = dt["new_address"]
                                 for dt in input_text:
@@ -179,25 +179,25 @@ class DataPath:
         else:
             self.zero = False
 
-    def getMuxDCP(self, sel, arg):
+    def get_mux_dcp(self, sel, arg):
         if sel == "MEM":
-            self.muxDCP_value = self.data_memory[arg]
+            self.mux_dcp_value = self.data_memory[arg]
         if sel == "DR":
-            self.muxDCP_value = self.data_register
+            self.mux_dcp_value = self.data_register
         if sel == "IP":
-            self.muxDCP_value = self.instruction_pointer
+            self.mux_dcp_value = self.instruction_pointer
 
-    def getMuxAB(self, sel):
+    def get_mux_ab(self, sel):
         if sel == "ACC":
-            self.muxAB_value = self.acc
+            self.mux_ab_value = self.acc
         if sel == "BR":
-            self.muxAB_value = self.buffer_register
+            self.mux_ab_value = self.buffer_register
 
     def latch_alu_right(self):
-        self.alu_right = self.muxDCP_value
+        self.alu_right = self.mux_dcp_value
 
     def latch_alu_left(self):
-        self.alu_left = self.muxAB_value
+        self.alu_left = self.mux_ab_value
 
 
 
@@ -205,19 +205,19 @@ class DataPath:
     def latch_address_register(self, address):
         if str(address).isdigit():
             self.address_register = address
-        elif address[0] == '$':
+        elif address[0] == "$":
             self.address_register = address
-        elif address[0] == '&':
+        elif address[0] == "&":
             self.address_register = int(self.data_memory[int(address[1:])])
 
     def latch_data_register(self, read_write):
-        if read_write == 'r':
-            if str(self.address_register)[0] == '$':
+        if read_write == "r":
+            if str(self.address_register)[0] == "$":
                 self.data_register = int(self.address_register[1:])
             else:
                 self.data_register = self.data_memory[self.address_register]
 
-        if read_write == 'w':
+        if read_write == "w":
             self.data_register = self.acc
 
 
@@ -236,7 +236,7 @@ class DataPath:
             #self.data_memory[self.data_memory[int(arg[1:])]] = symbol
             #self.acc = symbol
 
-    def setZero(self):
+    def set_zero(self):
         if self.acc == 0:
             self.zero = True
         else:
@@ -258,7 +258,7 @@ class ControlUnit:
         self.tick = 0
         self.count_of_instr = 0
 
-    def printState(self):
+    def print_state(self):
         print("Tick:", self.data_path.tick_counter,
               "ACC:", self.data_path.acc,
               "ALU:", self.data_path.alu,
@@ -266,9 +266,9 @@ class ControlUnit:
               "ZERO:", self.data_path.zero)
 
     def address_decoder(self, arg):
-        if arg == 'in':
+        if arg == "in":
             arg = 1
-        elif arg == 'out':
+        elif arg == "out":
             arg = 2
 
         if arg == 2:
@@ -277,7 +277,7 @@ class ControlUnit:
             return True
         elif arg == 1:
             self.data_path.signal_write(arg)
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
             return True
         else:
@@ -321,10 +321,10 @@ class ControlUnit:
                 self.data_path.latch_address_register(arg)
                 self.data_path.tick()
 
-                self.data_path.latch_data_register('r')
+                self.data_path.latch_data_register("r")
                 self.data_path.tick()
 
-                self.data_path.getMuxDCP("DR", arg)
+                self.data_path.get_mux_dcp("DR", arg)
                 self.data_path.latch_alu_right()
                 self.data_path.tick()
 
@@ -334,7 +334,7 @@ class ControlUnit:
 
         if opcode == Opcode.ST:
             if not(self.address_decoder(arg)):
-                self.data_path.latch_data_register('w')
+                self.data_path.latch_data_register("w")
                 self.data_path.tick()
 
                 self.data_path.latch_address_register(arg)
@@ -342,12 +342,12 @@ class ControlUnit:
                 self.data_path.tick()
 
         if opcode == Opcode.JNZ:
-            if self.data_path.zero == False:
+            if not(self.data_path.zero):
                 self.data_path.instruction_pointer = arg - 1
             self.data_path.tick()
 
         if opcode == Opcode.JZ:
-            if self.data_path.zero == True:
+            if self.data_path.zero:
                 self.data_path.instruction_pointer = arg - 1
             self.data_path.tick()
 
@@ -359,14 +359,14 @@ class ControlUnit:
             #
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
-            self.data_path.latch_data_register('r')
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
 
             self.data_path.tick()
-            self.data_path.getMuxAB("ACC")
+            self.data_path.get_mux_ab("ACC")
             self.data_path.latch_alu_left()
             self.data_path.tick()
 
@@ -381,14 +381,14 @@ class ControlUnit:
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register( 'r')
+            self.data_path.latch_data_register( "r")
             self.data_path.tick()
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
             self.data_path.tick()
 
-            self.data_path.getMuxAB("ACC")
+            self.data_path.get_mux_ab("ACC")
             self.data_path.latch_alu_left()
             self.data_path.tick()
 
@@ -396,7 +396,7 @@ class ControlUnit:
             self.data_path.latch_acc()
             self.data_path.tick()
 
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
 
@@ -405,15 +405,15 @@ class ControlUnit:
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register('r')
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
             self.data_path.tick()
 
-            self.data_path.getMuxAB("ACC")
+            self.data_path.get_mux_ab("ACC")
             self.data_path.latch_alu_left()
             self.data_path.tick()
 
@@ -421,7 +421,7 @@ class ControlUnit:
             self.data_path.latch_acc()
             self.data_path.tick()
 
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
         if opcode == Opcode.MUL:
@@ -429,15 +429,15 @@ class ControlUnit:
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register('r')
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
             self.data_path.tick()
 
-            self.data_path.getMuxAB("ACC")
+            self.data_path.get_mux_ab("ACC")
             self.data_path.latch_alu_left()
             self.data_path.tick()
 
@@ -445,7 +445,7 @@ class ControlUnit:
             self.data_path.latch_acc()
             self.data_path.tick()
 
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
         if opcode == Opcode.DIV:
@@ -453,15 +453,15 @@ class ControlUnit:
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register('r')
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
             self.data_path.tick()
 
-            self.data_path.getMuxAB("ACC")
+            self.data_path.get_mux_ab("ACC")
             self.data_path.latch_alu_left()
             self.data_path.tick()
 
@@ -469,7 +469,7 @@ class ControlUnit:
             self.data_path.latch_acc()
             self.data_path.tick()
 
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
         if opcode == Opcode.INC:
@@ -477,10 +477,10 @@ class ControlUnit:
             self.data_path.latch_address_register(arg)
             self.data_path.tick()
 
-            self.data_path.latch_data_register('r')
+            self.data_path.latch_data_register("r")
             self.data_path.tick()
 
-            self.data_path.getMuxDCP("DR", arg)
+            self.data_path.get_mux_dcp("DR", arg)
             self.data_path.latch_alu_right()
             self.data_path.tick()
 
@@ -488,13 +488,13 @@ class ControlUnit:
             self.data_path.latch_acc()
             self.data_path.tick()
 
-            self.data_path.latch_data_register('w')
+            self.data_path.latch_data_register("w")
             self.data_path.tick()
 
             self.data_path.latch_memory(arg)
             self.data_path.tick()
 
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
 
@@ -507,7 +507,7 @@ class ControlUnit:
         if opcode == Opcode.READ:
             # print('READ', arg)
             self.data_path.signal_write(arg)
-            self.data_path.setZero()
+            self.data_path.set_zero()
             self.data_path.tick()
 
         if opcode == Opcode.HALT:
@@ -556,7 +556,6 @@ def simulation(code, data_memory_size, limit, input_buffer):
 
         #logging.debug(control_unit)
         #print("STOP")
-        a = 0
     #for i in range(25):
         #print(i, data_path.data_memory[i])
     return data_path.output_buffer, instr_counter, data_path.tick_counter
