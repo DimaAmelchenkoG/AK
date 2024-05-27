@@ -9,9 +9,10 @@ import logging
 import os
 import tempfile
 
+import asm_translator
 import machine
 import pytest
-import asm_translator
+
 
 @pytest.mark.golden_test("golden/*.yml")
 def test_translator_asm_and_machine(golden, caplog):
