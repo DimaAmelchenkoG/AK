@@ -112,11 +112,11 @@
 ## CI
 
 ```text
-| ФИО                            | алг   | LoC | code байт | code инстр. | инстр. | такт. | вариант |
-| Амельченко Дмитрий Сергеевич | hello | ... | -         | ...         | ...    | ...   | ...     |
-| Амельченко Дмитрий Сергеевич | cat   | 1   | -         | 6           | 15     | 28    | ...     |
-| Амельченко Дмитрий Сергеевич | cat   | 1   | -         | 6           | 15     | 28    | ...     |
-| Амельченко Дмитрий Сергеевич | cat   | 1   | -         | 6           | 15     | 28    | ...     |
+| ФИО                          | алг             | LoC       | code байт   | code инстр. | инстр. | такт.   | вариант                                                                          |
+| Амельченко Дмитрий Сергеевич | cat             | 25        | -           | 18          | 44     | 108     | asm | acc | neum | hw | instr | struct | stream | mem | cstr | prob1 | cache     |
+| Амельченко Дмитрий Сергеевич | hello           | 11        | -           | 7           | 58     | 160     | asm | acc | neum | hw | instr | struct | stream | mem | cstr | prob1 | cache     |
+| Амельченко Дмитрий Сергеевич | hello_user_name | 39        | -           | 30          | 174    | 468     | asm | acc | neum | hw | instr | struct | stream | mem | cstr | prob1 | cache     |
+| Амельченко Дмитрий Сергеевич | cat             | 24        | -           | 19          | 11940  | 45092   | asm | acc | neum | hw | instr | struct | stream | mem | cstr | prob1 | cache     |
 ```
 
 
