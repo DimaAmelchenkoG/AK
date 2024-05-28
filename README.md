@@ -106,8 +106,32 @@
 
 
 ## Тесты
-### Модульные тесты
-### Интеграционные тесты
+Тестирование выполняется при помощи golden-тестов на базе Pytest Golden
+
+Тестовое покрытие:
+hello_user_name - выделение памяти под строку и ее заполнение
+cat - ввод-вывод
+hello - вывод и работа со строками
+prob1 - алгоритм из варианта, вычисляет сумму всех чисел, кратных 3 и 5 до 1000
+
+Пример запуска тестов:
+```
+PS C:\Users\mitya\PycharmProjects\AK> poetry run pytest . -v
+========================================================================================================= test session starts =========================================================================================================
+platform win32 -- Python 3.11.2, pytest-8.2.1, pluggy-1.5.0 -- C:\Users\mitya\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\mitya\PycharmProjects\AK
+configfile: pyproject.toml
+plugins: golden-0.2.2
+collected 4 items
+
+golden_test.py::test_translator_asm_and_machine[golden/cat.yml] PASSED                                                                                                                                                           [ 25%]
+golden_test.py::test_translator_asm_and_machine[golden/hello.yml] PASSED                                                                                                                                                         [ 50%]
+golden_test.py::test_translator_asm_and_machine[golden/hello_user_name.yml] PASSED                                                                                                                                               [ 75%]
+golden_test.py::test_translator_asm_and_machine[golden/prob1.yml] PASSED                                                                                                                                                         [100%]
+
+========================================================================================================== 4 passed in 1.96s ========================================================================================================== 
+```
 
 ## CI
 
