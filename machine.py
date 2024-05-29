@@ -142,6 +142,10 @@ class DataPath:
                         else:
                             arg = line["arg"]
 
+                if arg == "in":
+                    arg = 1
+                elif arg == "out":
+                    arg = 2
                 instr = {"opcode": Opcode(opcode), "arg": arg}
                 self.data_memory[address] = instr
                 count_of_instr += 1
@@ -267,11 +271,12 @@ class ControlUnit:
         )
 
     def address_decoder(self, arg):
-        if arg == "in":
-            arg = 1
-        elif arg == "out":
-            arg = 2
-
+        """
+        #if arg == "in":
+        #    arg = 1
+        #elif arg == "out":
+        #    arg = 2
+        """
         if arg == 2:
             self.data_path.signal_read()
             self.data_path.tick()

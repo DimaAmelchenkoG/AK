@@ -39,7 +39,7 @@ in_source: |
       break:
           halt
 in_stdin: |-
-  Dima
+  Dimooon
 out_code: |-
   [{"index": 0, "opcode": "var", "arg": 0, "name": "x"},
    {"index": 1, "opcode": "var", "arg": "\"Whats your name? \"", "name": "question"},
@@ -74,180 +74,213 @@ out_code: |-
 out_stdout: |
   source LoC: 39 code instr: 30
   ============================================================
-  Whats your name? Hello Dima
-  instr_counter:  174 ticks: 468
+  Whats your name? Hello Dimooon
+  instr_counter:  207 ticks: 552
 out_log: |
   DEBUG   machine:simulation    INSTRUCTION_POINT: 1 || TICK: 4 || PC: 33 || ACC: W || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 2 || TICK: 5 || PC: 34 || ACC: W || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 3 || TICK: 6 || PC: 35 || ACC: W || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 3 || TICK: 6 || PC: 35 || ACC: W || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 4 || TICK: 13 || PC: 36 || ACC: 7 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 5 || TICK: 14 || PC: 32 || ACC: 7 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 6 || TICK: 18 || PC: 33 || ACC: h || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 7 || TICK: 19 || PC: 34 || ACC: h || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 8 || TICK: 20 || PC: 35 || ACC: h || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 8 || TICK: 20 || PC: 35 || ACC: h || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 9 || TICK: 27 || PC: 36 || ACC: 8 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 10 || TICK: 28 || PC: 32 || ACC: 8 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 11 || TICK: 32 || PC: 33 || ACC: a || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 12 || TICK: 33 || PC: 34 || ACC: a || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 13 || TICK: 34 || PC: 35 || ACC: a || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 13 || TICK: 34 || PC: 35 || ACC: a || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 14 || TICK: 41 || PC: 36 || ACC: 9 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 15 || TICK: 42 || PC: 32 || ACC: 9 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 16 || TICK: 46 || PC: 33 || ACC: t || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 17 || TICK: 47 || PC: 34 || ACC: t || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 18 || TICK: 48 || PC: 35 || ACC: t || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 18 || TICK: 48 || PC: 35 || ACC: t || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 19 || TICK: 55 || PC: 36 || ACC: 10 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 20 || TICK: 56 || PC: 32 || ACC: 10 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 21 || TICK: 60 || PC: 33 || ACC: s || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 22 || TICK: 61 || PC: 34 || ACC: s || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 23 || TICK: 62 || PC: 35 || ACC: s || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 23 || TICK: 62 || PC: 35 || ACC: s || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 24 || TICK: 69 || PC: 36 || ACC: 11 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 25 || TICK: 70 || PC: 32 || ACC: 11 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 26 || TICK: 74 || PC: 33 || ACC:   || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 27 || TICK: 75 || PC: 34 || ACC:   || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 28 || TICK: 76 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 28 || TICK: 76 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 29 || TICK: 83 || PC: 36 || ACC: 12 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 30 || TICK: 84 || PC: 32 || ACC: 12 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 31 || TICK: 88 || PC: 33 || ACC: y || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 32 || TICK: 89 || PC: 34 || ACC: y || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 33 || TICK: 90 || PC: 35 || ACC: y || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 33 || TICK: 90 || PC: 35 || ACC: y || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 34 || TICK: 97 || PC: 36 || ACC: 13 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 35 || TICK: 98 || PC: 32 || ACC: 13 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 36 || TICK: 102 || PC: 33 || ACC: o || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 37 || TICK: 103 || PC: 34 || ACC: o || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 38 || TICK: 104 || PC: 35 || ACC: o || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 38 || TICK: 104 || PC: 35 || ACC: o || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 39 || TICK: 111 || PC: 36 || ACC: 14 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 40 || TICK: 112 || PC: 32 || ACC: 14 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 41 || TICK: 116 || PC: 33 || ACC: u || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 42 || TICK: 117 || PC: 34 || ACC: u || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 43 || TICK: 118 || PC: 35 || ACC: u || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 43 || TICK: 118 || PC: 35 || ACC: u || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 44 || TICK: 125 || PC: 36 || ACC: 15 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 45 || TICK: 126 || PC: 32 || ACC: 15 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 46 || TICK: 130 || PC: 33 || ACC: r || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 47 || TICK: 131 || PC: 34 || ACC: r || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 48 || TICK: 132 || PC: 35 || ACC: r || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 48 || TICK: 132 || PC: 35 || ACC: r || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 49 || TICK: 139 || PC: 36 || ACC: 16 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 50 || TICK: 140 || PC: 32 || ACC: 16 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 51 || TICK: 144 || PC: 33 || ACC:   || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 52 || TICK: 145 || PC: 34 || ACC:   || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 53 || TICK: 146 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 53 || TICK: 146 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 54 || TICK: 153 || PC: 36 || ACC: 17 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 55 || TICK: 154 || PC: 32 || ACC: 17 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 56 || TICK: 158 || PC: 33 || ACC: n || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 57 || TICK: 159 || PC: 34 || ACC: n || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 58 || TICK: 160 || PC: 35 || ACC: n || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 58 || TICK: 160 || PC: 35 || ACC: n || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 59 || TICK: 167 || PC: 36 || ACC: 18 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 60 || TICK: 168 || PC: 32 || ACC: 18 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 61 || TICK: 172 || PC: 33 || ACC: a || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 62 || TICK: 173 || PC: 34 || ACC: a || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 63 || TICK: 174 || PC: 35 || ACC: a || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 63 || TICK: 174 || PC: 35 || ACC: a || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 64 || TICK: 181 || PC: 36 || ACC: 19 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 65 || TICK: 182 || PC: 32 || ACC: 19 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 66 || TICK: 186 || PC: 33 || ACC: m || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 67 || TICK: 187 || PC: 34 || ACC: m || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 68 || TICK: 188 || PC: 35 || ACC: m || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 68 || TICK: 188 || PC: 35 || ACC: m || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 69 || TICK: 195 || PC: 36 || ACC: 20 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 70 || TICK: 196 || PC: 32 || ACC: 20 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 71 || TICK: 200 || PC: 33 || ACC: e || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 72 || TICK: 201 || PC: 34 || ACC: e || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 73 || TICK: 202 || PC: 35 || ACC: e || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 73 || TICK: 202 || PC: 35 || ACC: e || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 74 || TICK: 209 || PC: 36 || ACC: 21 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 75 || TICK: 210 || PC: 32 || ACC: 21 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 76 || TICK: 214 || PC: 33 || ACC: ? || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 77 || TICK: 215 || PC: 34 || ACC: ? || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 78 || TICK: 216 || PC: 35 || ACC: ? || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 78 || TICK: 216 || PC: 35 || ACC: ? || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 79 || TICK: 223 || PC: 36 || ACC: 22 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 80 || TICK: 224 || PC: 32 || ACC: 22 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 81 || TICK: 228 || PC: 33 || ACC:   || ZERO_FLAG: False ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 82 || TICK: 229 || PC: 34 || ACC:   || ZERO_FLAG: False ||  jz 37
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 83 || TICK: 230 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st out
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 83 || TICK: 230 || PC: 35 || ACC:   || ZERO_FLAG: False ||  st 2
   DEBUG   machine:simulation    INSTRUCTION_POINT: 84 || TICK: 237 || PC: 36 || ACC: 23 || ZERO_FLAG: False ||  inc 5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 85 || TICK: 238 || PC: 32 || ACC: 23 || ZERO_FLAG: False || 
   DEBUG   machine:simulation    INSTRUCTION_POINT: 86 || TICK: 242 || PC: 33 || ACC: 0 || ZERO_FLAG: True ||  ld &5
   DEBUG   machine:simulation    INSTRUCTION_POINT: 87 || TICK: 243 || PC: 37 || ACC: 0 || ZERO_FLAG: True ||  jmp 32
   DEBUG   machine:simulation    INSTRUCTION_POINT: 88 || TICK: 247 || PC: 38 || ACC: 60 || ZERO_FLAG: False ||  ld 59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 89 || TICK: 249 || PC: 39 || ACC: 60 || ZERO_FLAG: False ||  st 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 90 || TICK: 250 || PC: 40 || ACC: D || ZERO_FLAG: False ||  ld in
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 90 || TICK: 250 || PC: 40 || ACC: D || ZERO_FLAG: False ||  ld 1
   DEBUG   machine:simulation    INSTRUCTION_POINT: 91 || TICK: 252 || PC: 41 || ACC: D || ZERO_FLAG: False ||  st &59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 92 || TICK: 253 || PC: 42 || ACC: D || ZERO_FLAG: False ||  jz 44
   DEBUG   machine:simulation    INSTRUCTION_POINT: 93 || TICK: 260 || PC: 43 || ACC: 61 || ZERO_FLAG: False ||  inc 59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 94 || TICK: 261 || PC: 39 || ACC: 61 || ZERO_FLAG: False ||  st 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 95 || TICK: 262 || PC: 40 || ACC: i || ZERO_FLAG: False ||  ld in
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 95 || TICK: 262 || PC: 40 || ACC: i || ZERO_FLAG: False ||  ld 1
   DEBUG   machine:simulation    INSTRUCTION_POINT: 96 || TICK: 264 || PC: 41 || ACC: i || ZERO_FLAG: False ||  st &59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 97 || TICK: 265 || PC: 42 || ACC: i || ZERO_FLAG: False ||  jz 44
   DEBUG   machine:simulation    INSTRUCTION_POINT: 98 || TICK: 272 || PC: 43 || ACC: 62 || ZERO_FLAG: False ||  inc 59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 99 || TICK: 273 || PC: 39 || ACC: 62 || ZERO_FLAG: False ||  st 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 100 || TICK: 274 || PC: 40 || ACC: m || ZERO_FLAG: False ||  ld in
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 100 || TICK: 274 || PC: 40 || ACC: m || ZERO_FLAG: False ||  ld 1
   DEBUG   machine:simulation    INSTRUCTION_POINT: 101 || TICK: 276 || PC: 41 || ACC: m || ZERO_FLAG: False ||  st &59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 102 || TICK: 277 || PC: 42 || ACC: m || ZERO_FLAG: False ||  jz 44
   DEBUG   machine:simulation    INSTRUCTION_POINT: 103 || TICK: 284 || PC: 43 || ACC: 63 || ZERO_FLAG: False ||  inc 59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 104 || TICK: 285 || PC: 39 || ACC: 63 || ZERO_FLAG: False ||  st 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 105 || TICK: 286 || PC: 40 || ACC: a || ZERO_FLAG: False ||  ld in
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 106 || TICK: 288 || PC: 41 || ACC: a || ZERO_FLAG: False ||  st &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 107 || TICK: 289 || PC: 42 || ACC: a || ZERO_FLAG: False ||  jz 44
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 105 || TICK: 286 || PC: 40 || ACC: o || ZERO_FLAG: False ||  ld 1
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 106 || TICK: 288 || PC: 41 || ACC: o || ZERO_FLAG: False ||  st &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 107 || TICK: 289 || PC: 42 || ACC: o || ZERO_FLAG: False ||  jz 44
   DEBUG   machine:simulation    INSTRUCTION_POINT: 108 || TICK: 296 || PC: 43 || ACC: 64 || ZERO_FLAG: False ||  inc 59
   DEBUG   machine:simulation    INSTRUCTION_POINT: 109 || TICK: 297 || PC: 39 || ACC: 64 || ZERO_FLAG: False ||  st 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 110 || TICK: 298 || PC: 40 || ACC: 0 || ZERO_FLAG: True ||  ld in
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 111 || TICK: 300 || PC: 41 || ACC: 0 || ZERO_FLAG: True ||  st &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 112 || TICK: 301 || PC: 44 || ACC: 0 || ZERO_FLAG: True ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 113 || TICK: 305 || PC: 45 || ACC: H || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 114 || TICK: 306 || PC: 46 || ACC: H || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 115 || TICK: 307 || PC: 47 || ACC: H || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 116 || TICK: 314 || PC: 48 || ACC: 26 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 117 || TICK: 315 || PC: 44 || ACC: 26 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 118 || TICK: 319 || PC: 45 || ACC: e || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 119 || TICK: 320 || PC: 46 || ACC: e || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 120 || TICK: 321 || PC: 47 || ACC: e || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 121 || TICK: 328 || PC: 48 || ACC: 27 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 122 || TICK: 329 || PC: 44 || ACC: 27 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 123 || TICK: 333 || PC: 45 || ACC: l || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 124 || TICK: 334 || PC: 46 || ACC: l || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 125 || TICK: 335 || PC: 47 || ACC: l || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 126 || TICK: 342 || PC: 48 || ACC: 28 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 127 || TICK: 343 || PC: 44 || ACC: 28 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 128 || TICK: 347 || PC: 45 || ACC: l || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 129 || TICK: 348 || PC: 46 || ACC: l || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 130 || TICK: 349 || PC: 47 || ACC: l || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 131 || TICK: 356 || PC: 48 || ACC: 29 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 132 || TICK: 357 || PC: 44 || ACC: 29 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 133 || TICK: 361 || PC: 45 || ACC: o || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 134 || TICK: 362 || PC: 46 || ACC: o || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 135 || TICK: 363 || PC: 47 || ACC: o || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 136 || TICK: 370 || PC: 48 || ACC: 30 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 137 || TICK: 371 || PC: 44 || ACC: 30 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 138 || TICK: 375 || PC: 45 || ACC:   || ZERO_FLAG: False ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 139 || TICK: 376 || PC: 46 || ACC:   || ZERO_FLAG: False ||  jz 49
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 140 || TICK: 377 || PC: 47 || ACC:   || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 141 || TICK: 384 || PC: 48 || ACC: 31 || ZERO_FLAG: False ||  inc 24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 142 || TICK: 385 || PC: 44 || ACC: 31 || ZERO_FLAG: False ||  jmp 39
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 143 || TICK: 389 || PC: 45 || ACC: 0 || ZERO_FLAG: True ||  ld &24
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 144 || TICK: 390 || PC: 49 || ACC: 0 || ZERO_FLAG: True ||  jmp 44
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 145 || TICK: 394 || PC: 50 || ACC: 60 || ZERO_FLAG: False ||  ld 4
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 146 || TICK: 396 || PC: 51 || ACC: 60 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 147 || TICK: 398 || PC: 52 || ACC: 60 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 148 || TICK: 402 || PC: 53 || ACC: D || ZERO_FLAG: False ||  ld &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 149 || TICK: 403 || PC: 54 || ACC: D || ZERO_FLAG: False ||  jz 57
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 150 || TICK: 404 || PC: 55 || ACC: D || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 151 || TICK: 411 || PC: 56 || ACC: 61 || ZERO_FLAG: False ||  inc 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 152 || TICK: 412 || PC: 51 || ACC: 61 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 153 || TICK: 414 || PC: 52 || ACC: 61 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 154 || TICK: 418 || PC: 53 || ACC: i || ZERO_FLAG: False ||  ld &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 155 || TICK: 419 || PC: 54 || ACC: i || ZERO_FLAG: False ||  jz 57
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 156 || TICK: 420 || PC: 55 || ACC: i || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 157 || TICK: 427 || PC: 56 || ACC: 62 || ZERO_FLAG: False ||  inc 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 158 || TICK: 428 || PC: 51 || ACC: 62 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 159 || TICK: 430 || PC: 52 || ACC: 62 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 160 || TICK: 434 || PC: 53 || ACC: m || ZERO_FLAG: False ||  ld &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 161 || TICK: 435 || PC: 54 || ACC: m || ZERO_FLAG: False ||  jz 57
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 162 || TICK: 436 || PC: 55 || ACC: m || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 163 || TICK: 443 || PC: 56 || ACC: 63 || ZERO_FLAG: False ||  inc 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 164 || TICK: 444 || PC: 51 || ACC: 63 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 165 || TICK: 446 || PC: 52 || ACC: 63 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 166 || TICK: 450 || PC: 53 || ACC: a || ZERO_FLAG: False ||  ld &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 167 || TICK: 451 || PC: 54 || ACC: a || ZERO_FLAG: False ||  jz 57
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 168 || TICK: 452 || PC: 55 || ACC: a || ZERO_FLAG: False ||  st out
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 169 || TICK: 459 || PC: 56 || ACC: 64 || ZERO_FLAG: False ||  inc 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 170 || TICK: 460 || PC: 51 || ACC: 64 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 171 || TICK: 462 || PC: 52 || ACC: 64 || ZERO_FLAG: False ||  st 59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 172 || TICK: 466 || PC: 53 || ACC: 0 || ZERO_FLAG: True ||  ld &59
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 173 || TICK: 467 || PC: 57 || ACC: 0 || ZERO_FLAG: True ||  jmp 51
-  DEBUG   machine:simulation    INSTRUCTION_POINT: 174 || TICK: 468 || PC: 58 || ACC: 0 || ZERO_FLAG: True ||  halt -
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 110 || TICK: 298 || PC: 40 || ACC: o || ZERO_FLAG: False ||  ld 1
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 111 || TICK: 300 || PC: 41 || ACC: o || ZERO_FLAG: False ||  st &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 112 || TICK: 301 || PC: 42 || ACC: o || ZERO_FLAG: False ||  jz 44
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 113 || TICK: 308 || PC: 43 || ACC: 65 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 114 || TICK: 309 || PC: 39 || ACC: 65 || ZERO_FLAG: False ||  st 4
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 115 || TICK: 310 || PC: 40 || ACC: o || ZERO_FLAG: False ||  ld 1
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 116 || TICK: 312 || PC: 41 || ACC: o || ZERO_FLAG: False ||  st &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 117 || TICK: 313 || PC: 42 || ACC: o || ZERO_FLAG: False ||  jz 44
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 118 || TICK: 320 || PC: 43 || ACC: 66 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 119 || TICK: 321 || PC: 39 || ACC: 66 || ZERO_FLAG: False ||  st 4
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 120 || TICK: 322 || PC: 40 || ACC: n || ZERO_FLAG: False ||  ld 1
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 121 || TICK: 324 || PC: 41 || ACC: n || ZERO_FLAG: False ||  st &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 122 || TICK: 325 || PC: 42 || ACC: n || ZERO_FLAG: False ||  jz 44
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 123 || TICK: 332 || PC: 43 || ACC: 67 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 124 || TICK: 333 || PC: 39 || ACC: 67 || ZERO_FLAG: False ||  st 4
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 125 || TICK: 334 || PC: 40 || ACC: 0 || ZERO_FLAG: True ||  ld 1
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 126 || TICK: 336 || PC: 41 || ACC: 0 || ZERO_FLAG: True ||  st &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 127 || TICK: 337 || PC: 44 || ACC: 0 || ZERO_FLAG: True ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 128 || TICK: 341 || PC: 45 || ACC: H || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 129 || TICK: 342 || PC: 46 || ACC: H || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 130 || TICK: 343 || PC: 47 || ACC: H || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 131 || TICK: 350 || PC: 48 || ACC: 26 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 132 || TICK: 351 || PC: 44 || ACC: 26 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 133 || TICK: 355 || PC: 45 || ACC: e || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 134 || TICK: 356 || PC: 46 || ACC: e || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 135 || TICK: 357 || PC: 47 || ACC: e || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 136 || TICK: 364 || PC: 48 || ACC: 27 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 137 || TICK: 365 || PC: 44 || ACC: 27 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 138 || TICK: 369 || PC: 45 || ACC: l || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 139 || TICK: 370 || PC: 46 || ACC: l || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 140 || TICK: 371 || PC: 47 || ACC: l || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 141 || TICK: 378 || PC: 48 || ACC: 28 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 142 || TICK: 379 || PC: 44 || ACC: 28 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 143 || TICK: 383 || PC: 45 || ACC: l || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 144 || TICK: 384 || PC: 46 || ACC: l || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 145 || TICK: 385 || PC: 47 || ACC: l || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 146 || TICK: 392 || PC: 48 || ACC: 29 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 147 || TICK: 393 || PC: 44 || ACC: 29 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 148 || TICK: 397 || PC: 45 || ACC: o || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 149 || TICK: 398 || PC: 46 || ACC: o || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 150 || TICK: 399 || PC: 47 || ACC: o || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 151 || TICK: 406 || PC: 48 || ACC: 30 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 152 || TICK: 407 || PC: 44 || ACC: 30 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 153 || TICK: 411 || PC: 45 || ACC:   || ZERO_FLAG: False ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 154 || TICK: 412 || PC: 46 || ACC:   || ZERO_FLAG: False ||  jz 49
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 155 || TICK: 413 || PC: 47 || ACC:   || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 156 || TICK: 420 || PC: 48 || ACC: 31 || ZERO_FLAG: False ||  inc 24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 157 || TICK: 421 || PC: 44 || ACC: 31 || ZERO_FLAG: False ||  jmp 39
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 158 || TICK: 425 || PC: 45 || ACC: 0 || ZERO_FLAG: True ||  ld &24
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 159 || TICK: 426 || PC: 49 || ACC: 0 || ZERO_FLAG: True ||  jmp 44
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 160 || TICK: 430 || PC: 50 || ACC: 60 || ZERO_FLAG: False ||  ld 4
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 161 || TICK: 432 || PC: 51 || ACC: 60 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 162 || TICK: 434 || PC: 52 || ACC: 60 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 163 || TICK: 438 || PC: 53 || ACC: D || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 164 || TICK: 439 || PC: 54 || ACC: D || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 165 || TICK: 440 || PC: 55 || ACC: D || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 166 || TICK: 447 || PC: 56 || ACC: 61 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 167 || TICK: 448 || PC: 51 || ACC: 61 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 168 || TICK: 450 || PC: 52 || ACC: 61 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 169 || TICK: 454 || PC: 53 || ACC: i || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 170 || TICK: 455 || PC: 54 || ACC: i || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 171 || TICK: 456 || PC: 55 || ACC: i || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 172 || TICK: 463 || PC: 56 || ACC: 62 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 173 || TICK: 464 || PC: 51 || ACC: 62 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 174 || TICK: 466 || PC: 52 || ACC: 62 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 175 || TICK: 470 || PC: 53 || ACC: m || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 176 || TICK: 471 || PC: 54 || ACC: m || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 177 || TICK: 472 || PC: 55 || ACC: m || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 178 || TICK: 479 || PC: 56 || ACC: 63 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 179 || TICK: 480 || PC: 51 || ACC: 63 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 180 || TICK: 482 || PC: 52 || ACC: 63 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 181 || TICK: 486 || PC: 53 || ACC: o || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 182 || TICK: 487 || PC: 54 || ACC: o || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 183 || TICK: 488 || PC: 55 || ACC: o || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 184 || TICK: 495 || PC: 56 || ACC: 64 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 185 || TICK: 496 || PC: 51 || ACC: 64 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 186 || TICK: 498 || PC: 52 || ACC: 64 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 187 || TICK: 502 || PC: 53 || ACC: o || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 188 || TICK: 503 || PC: 54 || ACC: o || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 189 || TICK: 504 || PC: 55 || ACC: o || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 190 || TICK: 511 || PC: 56 || ACC: 65 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 191 || TICK: 512 || PC: 51 || ACC: 65 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 192 || TICK: 514 || PC: 52 || ACC: 65 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 193 || TICK: 518 || PC: 53 || ACC: o || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 194 || TICK: 519 || PC: 54 || ACC: o || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 195 || TICK: 520 || PC: 55 || ACC: o || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 196 || TICK: 527 || PC: 56 || ACC: 66 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 197 || TICK: 528 || PC: 51 || ACC: 66 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 198 || TICK: 530 || PC: 52 || ACC: 66 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 199 || TICK: 534 || PC: 53 || ACC: n || ZERO_FLAG: False ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 200 || TICK: 535 || PC: 54 || ACC: n || ZERO_FLAG: False ||  jz 57
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 201 || TICK: 536 || PC: 55 || ACC: n || ZERO_FLAG: False ||  st 2
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 202 || TICK: 543 || PC: 56 || ACC: 67 || ZERO_FLAG: False ||  inc 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 203 || TICK: 544 || PC: 51 || ACC: 67 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 204 || TICK: 546 || PC: 52 || ACC: 67 || ZERO_FLAG: False ||  st 59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 205 || TICK: 550 || PC: 53 || ACC: 0 || ZERO_FLAG: True ||  ld &59
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 206 || TICK: 551 || PC: 57 || ACC: 0 || ZERO_FLAG: True ||  jmp 51
+  DEBUG   machine:simulation    INSTRUCTION_POINT: 207 || TICK: 552 || PC: 58 || ACC: 0 || ZERO_FLAG: True ||  halt -
