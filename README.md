@@ -87,12 +87,12 @@
 ## DataPath
 - Реализован в классе DataPath в файле machine.py
 ## Сигналы:
-- latch_acc       
-- latch_address_register
-- latch_data_register
-- latch_memory
-- latch_alu_right
-- latch_alu_left
+- latch_acc - запись в аккамулятор       
+- latch_address_register - запись в регистр адресов
+- latch_data_register - запись в регистр данных
+- latch_memory - запись или чтение из памяти
+- latch_alu_right - записсь в правый вход ALU
+- latch_alu_left - запись в левый вход ALU
 - getMUX       -     говорит, какие данные выводить MUX
 
 ### Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
@@ -106,7 +106,7 @@
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/5eafdecd-7d8d-4074-b5ed-10f297606b85)
 
 
-## Тесты
+## Тестирование
 Тестирование выполняется при помощи golden-тестов на базе Pytest Golden
 
 Тестовое покрытие:
