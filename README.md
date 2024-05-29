@@ -87,6 +87,7 @@
 ## DataPath
 - Реализован в классе DataPath в файле machine.py
 ## Сигналы:
+- init_memory - записывает данные и команды в память перед началом исполнения
 - latch_acc - запись в аккамулятор       
 - latch_address_register - запись в регистр адресов
 - latch_data_register - запись в регистр данных
@@ -94,14 +95,14 @@
 - latch_alu_right - записсь в правый вход ALU
 - latch_alu_left - запись в левый вход ALU
 - getMUX       -     говорит, какие данные выводить MUX
-
-### Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
+- Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
 
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/6ec4bc51-15ce-4485-aa49-d37f97eed2cd)
 
 ## ControlUnit
 - Реализован в классе ControlUnit в файле machine.py
 - Цикл симуляции осуществляется в метод execute.
+- instruction_pointer - указатель на текущую исполняемую команду
   
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/5eafdecd-7d8d-4074-b5ed-10f297606b85)
 
