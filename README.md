@@ -97,7 +97,8 @@
 - getMUX       -     говорит, какие данные выводить MUX
 - Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
 
-![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/eb06ffa8-9bf9-4520-9702-43d8ce2211aa)
+![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/da7b52f4-5e70-4447-a629-0a82d4e77426)
+
 
 
 ## ControlUnit
