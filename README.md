@@ -97,7 +97,8 @@
 - getMUX       -     говорит, какие данные выводить MUX
 - Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
 
-![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/6ec4bc51-15ce-4485-aa49-d37f97eed2cd)
+![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/eb06ffa8-9bf9-4520-9702-43d8ce2211aa)
+
 
 ## ControlUnit
 - Реализован в классе ControlUnit в файле machine.py
