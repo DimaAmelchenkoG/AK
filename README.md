@@ -86,6 +86,7 @@
 - Интерфейс командной строки: machine.py <machine_code_file> <input_file>
 ## DataPath
 - Реализован в классе DataPath в файле machine.py
+![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/da7b52f4-5e70-4447-a629-0a82d4e77426)
 ## Сигналы:
 - init_memory - записывает данные и команды в память перед началом исполнения
 - latch_acc - запись в аккамулятор       
@@ -97,7 +98,7 @@
 - getMUX       -     говорит, какие данные выводить MUX
 - Z - флаг (если аккамулятор равен 0, то TRUE, инача False)
 
-![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/da7b52f4-5e70-4447-a629-0a82d4e77426)
+
 
 
 
