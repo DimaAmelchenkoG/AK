@@ -49,6 +49,8 @@
 | jz  | JZ  | 1  | IF AC == 0: JMP LABEL |
 | jnz  | JNZ  | 1  | IF AC != 0: JMP LABEL   |
 | halt  | HALT  | 1  | STOP  |
+| ld in  | -  | 1  | AC = INPUT  |
+| st out  | -  | 1  | OUTPUT = AC  |
 
 ## Организация памяти
 - архитектура фон неймана
