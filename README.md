@@ -103,6 +103,8 @@
 
 # Процессор
 - Интерфейс командной строки: machine.py <machine_code_file> <input_file>
+- первым делом происходит инициализация памяти <ins> init_memory(self, code) </ins>
+- затем мы процессор исполняет все интрукции попорядку
 ## DataPath
 - Реализован в классе DataPath в файле machine.py
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/da7b52f4-5e70-4447-a629-0a82d4e77426)
