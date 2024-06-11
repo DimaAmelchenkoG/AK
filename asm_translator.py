@@ -86,6 +86,14 @@ def get_code(source):
                 }
                 index_of_command += 1
                 code.append(js)
+            elif len(source[i].split()) > 1 and source[i].split()[1].startswith("*"):
+                js = {
+                    "index": index_of_command,
+                    "opcode": Opcode(source[i].split()[0]).value,
+                    "arg": source[i].split()[1],
+                }
+                index_of_command += 1
+                code.append(js)
             else:
                 """ print(source[i]) """
                 js = {"index": index_of_command, "opcode": Opcode(source[i].split()[0]).value}

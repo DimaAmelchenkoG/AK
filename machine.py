@@ -139,6 +139,8 @@ class DataPath:
                                 """
                                 # arg = line["arg"] + data_start_addres
                                 """
+                        elif line["arg"].startswith("*"):
+                            arg = int(line["arg"][1:])
                         else:
                             arg = line["arg"]
 
@@ -267,11 +269,6 @@ class ControlUnit:
         )
 
     def address_decoder(self, arg):
-        if arg == "in":
-            arg = 1
-        elif arg == "out":
-            arg = 2
-
         if arg == 2:
             self.data_path.signal_read()
             self.data_path.tick()
