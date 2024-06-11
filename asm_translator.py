@@ -110,7 +110,6 @@ def translate(source):
     get_labels(source)
     get_code(source)
 
-
     return code
 
 
@@ -121,22 +120,17 @@ def main(source, target):
     my_vars.clear()
     code.clear()
 
-
     with open(source, encoding="utf-8") as f:
         source = f.readlines()
 
     source = [x for x in source if x != "\n"]
     code = translate(source)
 
-
-
     with open(target, "w", encoding="utf-8") as file:
         buf = []
         for instr in code:
             buf.append(json.dumps(instr))
         file.write("[" + ",\n ".join(buf) + "]")
-
-
 
     print("source LoC:", len(source), "code instr:", len(code))
 

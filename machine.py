@@ -224,7 +224,6 @@ class DataPath:
         symbol = self.input_buffer.pop(0)
         self.acc = symbol
 
-
     def set_zero(self):
         if self.acc == 0:
             self.zero = True
@@ -302,7 +301,6 @@ class ControlUnit:
         instr = self.data_path.data_memory[self.data_path.instruction_pointer]
         arg = instr["arg"]
         opcode = instr["opcode"]
-
 
         if opcode == Opcode.LOAD:
             if not (self.address_decoder(arg)):
@@ -476,12 +474,10 @@ class ControlUnit:
             self.data_path.tick()
 
         if opcode == Opcode.PRINT:
-
             self.data_path.signal_read()
             self.data_path.tick()
 
         if opcode == Opcode.READ:
-
             self.data_path.signal_write(arg)
             self.data_path.set_zero()
             self.data_path.tick()
@@ -493,8 +489,6 @@ class ControlUnit:
         self.data_path.instruction_pointer += 1
 
 
-
-
 def simulation(code, data_memory_size, limit, input_buffer):
     data_path = DataPath(data_memory_size, input_buffer)
     control_unit = ControlUnit(code, data_path)
@@ -503,7 +497,6 @@ def simulation(code, data_memory_size, limit, input_buffer):
     data_path.init_memory(code)
 
     i = 0
-
 
     try:
         while True:
@@ -521,14 +514,11 @@ def simulation(code, data_memory_size, limit, input_buffer):
     if instr_counter > limit:
         logging.warning("Exceed limit!")
 
-
     return data_path.output_buffer, instr_counter, data_path.tick_counter
 
 
 def main(code_file, input_file):
     code = []
-
-
 
     with open(code_file) as f:
         code = json.load(f)
@@ -541,7 +531,6 @@ def main(code_file, input_file):
     if len(input_buffer) > 0:
         input_buffer.append(0)
 
-
     output, instr_counter, ticks = simulation(code, data_memory_size=1000, limit=100000, input_buffer=input_buffer)
 
     if len(output) > 0:
@@ -551,6 +540,5 @@ def main(code_file, input_file):
 
 
 if __name__ == "__main__":
-
     _, code_file, input_file = sys.argv
     main(code_file, input_file)
