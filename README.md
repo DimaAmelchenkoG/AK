@@ -129,10 +129,9 @@
 - Реализован в классе ControlUnit в файле machine.py
 - Цикл симуляции осуществляется в метод execute.
 - instruction_pointer - указатель на текущую исполняемую команду
-- tick
-- simulation
-- logging
-- limit
+- tick - счетчик тиков
+- simulation - запуск работы процессора
+- limit - лимит кол-ва иструкций
   
 ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/5eafdecd-7d8d-4074-b5ed-10f297606b85)
 
