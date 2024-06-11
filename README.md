@@ -107,9 +107,8 @@
 - затем мы процессор исполняет все интрукции попорядку
 ## DataPath
 - Реализован в классе DataPath в файле machine.py
-- ![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/e8e5319e-a865-46a2-90d2-701cf4c155aa)
+![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/e8e5319e-a865-46a2-90d2-701cf4c155aa)
 
-![image](https://github.com/DimaAmelchenkoG/AK/assets/144106912/da7b52f4-5e70-4447-a629-0a82d4e77426)
 ## Сигналы:
 - init_memory - записывает данные и команды в память перед началом исполнения
 - latch_acc - запись в аккамулятор       
